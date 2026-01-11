@@ -1,4 +1,5 @@
-class Producto{
+//CRUD
+export class Producto{
     constructor(nombre,precio){
         this.id = crypto.randomUUID();
         this.nombre = nombre;
@@ -7,7 +8,7 @@ class Producto{
 }
 
 
-class Inventario{
+export class Inventario{
     constructor(){
         this.productos = new Map();
         this.nombres = new Set();
@@ -18,9 +19,10 @@ class Inventario{
     }
 
     addProducto(producto){
-        if (this.findNombre(producto.nombre)){return};
+        if (this.findNombre(producto.nombre)){return false};
         this.productos.set(producto.id, producto);
         this.nombres.add(producto.nombre);
+        return true
     }
 
     getProductById(id){
