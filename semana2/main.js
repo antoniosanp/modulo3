@@ -42,11 +42,11 @@ export class Inventario{
     updateProductById(id, {nombre,precio} = {}){
         const producto = this.productos.get(id);
         if (!producto){return};
-
+        if (precio == "" ){precio = undefined}
         if (precio !== undefined){
         producto.precio = precio;
         }
-
+        if (nombre.trim() == "") {nombre = undefined}
         if (nombre !== undefined){
             if (this.nombres.has(nombre)){return};
 

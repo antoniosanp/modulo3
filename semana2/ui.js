@@ -105,8 +105,25 @@ inventarioBtn.addEventListener("click",()=>{
 
         btnModificarProducto.addEventListener("click", ()=>{
             const formularioModificar = modificarDiv.cloneNode(true);
-            cerrarClickAfuera(formularioModificar);
+            const nombreModificarInput = formularioModificar.querySelector(".modificarNombreInput");
+            const precioModificarInput = formularioModificar.querySelector(".modificarPrecioInput");
+            const aceptarModificarBtn = formularioModificar.querySelector("button")
 
+            aceptarModificarBtn.addEventListener("click", ()=>{
+                if (precioModificarInput.value >= 0 || Number.isNaN(precioModificarInput.value) ){
+                console.log(newProducto)
+                inventario.updateProductById(newProducto.id, {nombre : nombreModificarInput.value, precio : precioModificarInput.value})
+                console.log(newProducto)}
+
+
+                text.textContent = newProducto.nombre;
+                precio.textContent = newProducto.precio;
+                formularioModificar.remove();
+
+
+            })
+
+            cerrarClickAfuera(formularioModificar);
             document.body.appendChild(formularioModificar)
         })
 
