@@ -49,26 +49,59 @@ export class Inventario{
         
     }
     
-    updateProductById(id, {nombre,precio} = {}){
-        const producto = this.productos.get(id);
-        if (!producto){return};
-        if (precio == "" ){precio = undefined}
-        if (precio !== undefined){
-        producto.precio = precio;
+    // updateProductById(id, {nombre,precio} = {}){
+    //     const producto = this.productos.get(id);
+    //     if (!producto){return};
+    //     if (precio == "" ){precio = undefined}
+    //     if (precio !== undefined){
+    //     producto.precio = precio;
+    //     }
+    //     if (nombre.trim() == "") {nombre = undefined}
+    //     if (nombre !== undefined){
+    //         if (this.nombres.has(nombre)){return};
+
+    //         this.nombres.delete(producto.nombre);
+    //         this.nombres.add(nombre)
+    //         producto.nombre = nombre;
+    //         producto.precio = precio;
+
+    //         this.saveLocalstorage();
+    //     }
+
+    // }
+    updateProductById(id, { nombre, precio } = {}) {
+    const producto = this.productos.get(id);
+    if (!producto) return;
+
+    let huboCambios = false;
+
+    // -------- PRECIO --------
+    if (precio !== undefined && precio !== "") {
+        const nuevoPrecio = Number(precio);
+        if (!Number.isNaN(nuevoPrecio) && nuevoPrecio >= 0) {
+            producto.precio = nuevoPrecio;
+            huboCambios = true;
         }
-        if (nombre.trim() == "") {nombre = undefined}
-        if (nombre !== undefined){
-            if (this.nombres.has(nombre)){return};
+    }
+
+    // -------- NOMBRE --------
+    if (nombre !== undefined) {
+        nombre = nombre.trim();
+        if (nombre !== "" && nombre !== producto.nombre) {
+            if (this.nombres.has(nombre)) return;
 
             this.nombres.delete(producto.nombre);
-            this.nombres.add(nombre)
+            this.nombres.add(nombre);
             producto.nombre = nombre;
-            producto.precio = precio;
-
-            this.saveLocalstorage();
+            huboCambios = true;
         }
-
     }
+
+    if (huboCambios) {
+        this.saveLocalstorage();
+    }
+    }
+
 
 }
 
