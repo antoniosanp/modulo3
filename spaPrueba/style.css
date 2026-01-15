@@ -1,0 +1,17 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 200px;
+}
+
+nav {
+  margin-bottom: 20px;
+}
+
+nav a {
+  margin: 5px;
+  padding: 10px 15px;
+  text-decoration: none;
+  border: 1px solid #333;
+  color: black;
+}
