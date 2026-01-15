@@ -41,7 +41,6 @@ productoTemplate.appendChild(spanPrecioTemplate);
 productoTemplate.appendChild(btnEliminarTemplate);
 productoTemplate.appendChild(btnModificarTemplate);
 
-
 //------------------------------------------------------------------
 // formulario modificar
 
@@ -79,36 +78,19 @@ function cerrarClickAfuera(elemento) {
 
 const inventario = new Inventario()
 
-
 //------------------------------------------------------------------
-// Render
+// funciones addEventListener
 
-
-//------------------------------------------------------------------
-// listeners
-
-inventarioBtn.addEventListener("click",()=>{
-    if (inventarioInput.value.trim() === "" || inventarioPrecioInput.value <= 0) {return};
-    const newProducto = new Producto(inventarioInput.value, inventarioPrecioInput.value);
-
-    if (inventario.addProducto(newProducto)){
-        
-        const newProductoUI = productoTemplate.cloneNode(true);
-        newProductoUI.id = newProducto.id;
-        const text = newProductoUI.querySelector(".nombreProducto");
-        const precio = newProductoUI.querySelector(".precioProducto")
-        const btnEliminarProducto = newProductoUI.querySelector("button");
-        const btnModificarProducto = newProductoUI.querySelector(".btnModificar")
-
-        text.textContent = newProducto.nombre;
-        precio.textContent = newProducto.precio;
-
-        btnEliminarProducto.addEventListener("click", ()=>{
+function btnEliminarProductoListener(btn,newProductoUI,newProducto){
+    btn.addEventListener("click", ()=>{
             inventario.deleteProductoById(newProducto.id);
             newProductoUI.remove();
         })
 
-        btnModificarProducto.addEventListener("click", ()=>{
+    }
+
+function btnModificarProductoListener(btn,newProducto,text,precioText){
+    btn.addEventListener("click", ()=>{
             const formularioModificar = modificarDiv.cloneNode(true);
             const nombreModificarInput = formularioModificar.querySelector(".modificarNombreInput");
             const precioModificarInput = formularioModificar.querySelector(".modificarPrecioInput");
@@ -121,7 +103,7 @@ inventarioBtn.addEventListener("click",()=>{
 
 
                 text.textContent = newProducto.nombre;
-                precio.textContent = newProducto.precio;
+                precioText.textContent = newProducto.precio;
                 formularioModificar.remove();
 
 
@@ -129,23 +111,73 @@ inventarioBtn.addEventListener("click",()=>{
             cerrarClickAfuera(formularioModificar);
             document.body.appendChild(formularioModificar)
         })
+    }
+//------------------------------------------------------------------
+//render
 
+function render(newProducto){
+    const newProductoUI = productoTemplate.cloneNode(true);
+    newProductoUI.id = newProducto.id;
+        const text = newProductoUI.querySelector(".nombreProducto");
+        const precio = newProductoUI.querySelector(".precioProducto")
+        const btnEliminarProducto = newProductoUI.querySelector("button");
+        const btnModificarProducto = newProductoUI.querySelector(".btnModificar")
 
+        text.textContent = newProducto.nombre;
+        precio.textContent = newProducto.precio;
 
+    btnEliminarProductoListener(btnEliminarProducto,newProductoUI,newProducto);
+    btnModificarProductoListener(btnModificarProducto,newProducto,text,precio);
 
-        inventarioDiv.appendChild(newProductoUI);
+    inventarioDiv.appendChild(newProductoUI);
 
-        inventarioInput.value = "";
-        inventarioPrecioInput.value = "";
-        inventarioPrecioInput.placeholder = "precio"
+    inventarioInput.value = "";
+    inventarioPrecioInput.value = "";
+    inventarioPrecioInput.placeholder = "precio"
 
+    }
+
+//--------------------------------------------------------------
+// renderAllAux(producto)
+function renderAllAux([id, producto]) {
+    const newProductoUI = productoTemplate.cloneNode(true);
+    newProductoUI.id = producto.id;
+        const text = newProductoUI.querySelector(".nombreProducto");
+        const precio = newProductoUI.querySelector(".precioProducto")
+        const btnEliminarProducto = newProductoUI.querySelector("button");
+        const btnModificarProducto = newProductoUI.querySelector(".btnModificar")
+
+        text.textContent = producto.nombre;
+        precio.textContent = producto.precio;
+
+    btnEliminarProductoListener(btnEliminarProducto,newProductoUI,producto);
+    btnModificarProductoListener(btnModificarProducto,producto,text,precio);
+
+    inventarioDiv.appendChild(newProductoUI);
 
 
     }
 
+
+
+//-------------------------------------------------------------
+function renderAll(){
+    
+    for ( let producto of inventario.productos){
+        renderAllAux(producto)
+    }
+}
+
+//---------------------------------------------------------
+
+inventarioBtn.addEventListener("click",()=>{
+    if (inventarioInput.value.trim() === "" || inventarioPrecioInput.value <= 0) {return};
+        const newProducto = new Producto(inventarioInput.value, inventarioPrecioInput.value);
+    
+    if (inventario.addProducto(newProducto)){
+        render(newProducto)
+    }
+
 })
 
-
-
-
-
+renderAll()

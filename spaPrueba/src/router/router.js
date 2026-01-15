@@ -1,6 +1,6 @@
 import { Home } from '../views/Home.js';
-// import { Services } from '../views/Services.js';
-// import { Contact } from '../views/Contact.js';
+import { Services } from '../views/Services.js';
+import { Contact } from '../views/Contact.js';
 import { render } from '../app.js';
 
 export function router() {

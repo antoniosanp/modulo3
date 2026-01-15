@@ -1,3 +1,4 @@
+import { Footer } from "./components/Footer.js";
 import { Navbar } from "./components/Navbar.js"
 import { router } from './router/router.js';
 
@@ -8,6 +9,7 @@ export function render(view) {
   app.innerHTML = `
     ${Navbar()}
     <main>${view}</main>
+    <footer>${Footer() } </footer>
   `;
 }
 

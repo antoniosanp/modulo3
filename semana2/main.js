@@ -10,18 +10,27 @@ export class Producto{
 
 export class Inventario{
     constructor(){
-        this.productos = new Map();
-        this.nombres = new Set();
+        this.productosLocalStorage = localStorage.getItem("productosLS");
+        this.nombresLocalStorage = localStorage.getItem("nombresLS");
+        this.productos = this.productosLocalStorage ? new Map(JSON.parse(this.productosLocalStorage))  : new Map();
+        this.nombres = this.nombresLocalStorage ? new Set(JSON.parse(this.nombresLocalStorage)) : new Set();
     }
 
     findNombre(nombre){
         return this.nombres.has(nombre);
     }
 
+    saveLocalstorage(){
+        localStorage.setItem("productosLS", JSON.stringify([...this.productos]));
+        localStorage.setItem("nombresLS", JSON.stringify([...this.nombres]));
+    }
+
     addProducto(producto){
         if (this.findNombre(producto.nombre)){return false};
         this.productos.set(producto.id, producto);
         this.nombres.add(producto.nombre);
+        this.saveLocalstorage()
+
         return true
     }
 
@@ -36,6 +45,7 @@ export class Inventario{
         if (!producto){return};
         this.nombres.delete(producto.nombre);
         this.productos.delete(id);
+        this.saveLocalstorage()
         
     }
     
@@ -53,6 +63,9 @@ export class Inventario{
             this.nombres.delete(producto.nombre);
             this.nombres.add(nombre)
             producto.nombre = nombre;
+            producto.precio = precio;
+
+            this.saveLocalstorage();
         }
 
     }
