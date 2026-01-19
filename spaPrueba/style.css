@@ -1,3 +1,6 @@
+*{
+  box-sizing: border-box;
+}
 
 body {
   font-family: Arial, sans-serif;
@@ -14,4 +17,17 @@ nav a {
 }
 main {
   padding: 1rem;
+}
+
+footer{
+  background-color: black;
+  color: white;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  position: absolute;
+  bottom: 1vh;
+  width: 98vw;
+  
 }

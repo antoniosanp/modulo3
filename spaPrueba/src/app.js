@@ -9,7 +9,8 @@ export function render(view) {
   app.innerHTML = `
     ${Navbar()}
     <main>${view}</main>
-    <footer>${Footer() } </footer>
+    ${Footer() } 
+    
   `;
 }
 
