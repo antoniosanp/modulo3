@@ -2,9 +2,7 @@
 
 export const store = {
   user: null,
-  tasks: [
-  
-  ]
+  tasks: localStorage.getItem("tareas") ? JSON.parse(localStorage.getItem("tareas"))  : []
 };
 
 export function login(name) {
@@ -17,6 +15,7 @@ export function addTask(title) {
     title,
     completed: false
   });
+  localStorage.setItem("tareas", JSON.stringify(store.tasks));
 
 }
 
