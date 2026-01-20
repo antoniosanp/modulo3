@@ -8,7 +8,7 @@ export function taskCard(title){
     `
         <p class=" taskTitle" > ${title}</p>
         <label for="">completed
-            <input class="checkCompleted" type="checkbox" name="" id="">
+            <input class="${task.complete ? 'checkCompleted completed' : 'checkCompleted'}" type="checkbox" name="" id="">
         </label>
     `
     const c = taskcardDiv.querySelector(".checkCompleted");
