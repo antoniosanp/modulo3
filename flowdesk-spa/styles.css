@@ -17,3 +17,7 @@ main {
   border: 1px solid #ccc;
   border-radius: 6px;
 }
+
+#app > main > section > div:nth-child(2) {
+  background: red;
+}
