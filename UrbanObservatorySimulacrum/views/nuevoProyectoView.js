@@ -1,30 +1,10 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Crear Proyecto – Observatorio Urbano</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
+export function nuevoProyecto(){
+    const nuevoProyecto = document.createElement("main")
 
-  <!-- Header -->
-  <header class="header">
-    <div class="header-content">
-      <div class="header-brand">
-        <h1 class="header-title">Observatorio Urbano y Ambiental</h1>
-        <p class="header-subtitle">Gestión de proyectos climáticos</p>
-      </div>
-      <nav class="header-nav">
-        <a href="index.html">Dashboard</a>
-        <a href="create-project.html">Nuevo Proyecto</a>
-        <a href="login.html">Salir</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Main -->
-  <main class="container">
+    nuevoProyecto.className = "container"
+    nuevoProyecto.innerHTML = 
+    `
+    
     <section class="create-project-container">
 
       <header class="create-header">
@@ -86,7 +66,10 @@
       </form>
 
     </section>
-  </main>
+  
 
-</body>
-</html>
+
+    `
+    return nuevoProyecto;
+
+}
