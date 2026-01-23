@@ -1,3 +1,5 @@
+//store.js
+
 export const store = {
     user : null,
     projects : []
