@@ -62,7 +62,7 @@ export function nuevoProyecto(){
           <button id="guardar" type="submit" class="btn btn-primary">
             Guardar proyecto
           </button>
-          <a href="index.html" class="btn btn-outline">
+          <a href="#/home" class="btn btnCancelar btn-outline">
             Cancelar
           </a>
         </div>
@@ -92,17 +92,30 @@ export function nuevoProyecto(){
     const status = nuevoProyectoView.querySelector("#status");
     const formProyecto = nuevoProyectoView.querySelector("form");
 
+    const btnCancelar = nuevoProyectoView.querySelector(".btnCancelar")
+
+    //const succesMessage = nuevoProyecto.querySelector("form-message succes");
+
     formProyecto.addEventListener("submit", async (e) =>{
 
       e.preventDefault();
 
       const datos = await getWeather(lon.value, lat.value);
-      console.log(datos)
+     
 
       submitAux(nombreProyecto.value, ciudadProyecto.value,status.value,datos)
-      console.log(store.projects)
+      
+      location.hash = "#/home"
 
     })
+
+    btnCancelar.addEventListener("click", ()=>
+    {
+      location.hash = "#/home"
+    })
+
+
+    
 
 
     

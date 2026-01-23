@@ -1,3 +1,4 @@
+import { crearGUIproyectos } from "../services/crearGUIproyectos.js";
 export function homeView(){
     document.body.className = "";
     const home = document.createElement("main");
@@ -50,15 +51,18 @@ export function homeView(){
         </section>
 
         <!-- Projects Grid -->
-        <section class="container">
-            <div class="projects-grid">
-                
-            </div>
+          <section class="container">
+            <div  class="projects-grid">
+
+            
+            </div">
         </section>
     
     
     
     `
+    const projectSection = home.querySelector(".projects-grid")
+    crearGUIproyectos(projectSection);
    
     return home
 }
