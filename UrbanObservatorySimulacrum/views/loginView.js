@@ -58,9 +58,6 @@ export function loginView(){
 
   } )
 
-
-    
-    ;
     return login
     
 }

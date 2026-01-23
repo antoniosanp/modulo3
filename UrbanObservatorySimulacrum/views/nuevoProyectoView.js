@@ -1,8 +1,10 @@
-export function nuevoProyecto(){
-    const nuevoProyecto = document.createElement("main")
+import { getWeather } from "../services/getWeather.js";
 
-    nuevoProyecto.className = "container"
-    nuevoProyecto.innerHTML = 
+export function nuevoProyecto(){
+    const nuevoProyectoView = document.createElement("main")
+
+    nuevoProyectoView.className = "container"
+    nuevoProyectoView.innerHTML = 
     `
     
     <section class="create-project-container">
@@ -47,7 +49,7 @@ export function nuevoProyecto(){
         </div>
 
         <div class="form-actions">
-          <button type="submit" class="btn btn-primary">
+          <button id="guardar" type="submit" class="btn btn-primary">
             Guardar proyecto
           </button>
           <a href="index.html" class="btn btn-outline">
@@ -70,6 +72,29 @@ export function nuevoProyecto(){
 
 
     `
-    return nuevoProyecto;
+
+    const nombreProyecto = nuevoProyectoView.querySelector("#name");
+    const ciudadProyecto = nuevoProyectoView.querySelector("#city");
+    
+    const lat = nuevoProyectoView.querySelector("#lat");
+    const lon = nuevoProyectoView.querySelector("#lon");
+
+    const status = nuevoProyectoView.querySelector("#status");
+    const formProyecto = nuevoProyectoView.querySelector("form");
+
+    formProyecto.addEventListener("submit", async (e) =>{
+
+      e.preventDefault();
+
+      const datos = await getWeather(lon.value, lat.value);
+      console.log(datos)
+
+
+    })
+
+
+    
+    
+    return nuevoProyectoView;
 
 }
