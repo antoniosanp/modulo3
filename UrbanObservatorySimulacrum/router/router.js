@@ -8,7 +8,7 @@ import { store } from "../store/store.js";
 //----------------------------------------------------------------------
 export function router() {
 
-    let hash = location.hash || "#/login";
+    const hash = location.hash || "#/login";
 
     if (!store.user && hash !== "#/login") {
         location.hash = "#/login";

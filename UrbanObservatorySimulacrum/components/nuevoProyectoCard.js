@@ -26,7 +26,7 @@ export function nuevoProyectoCard(proyecto){
                         <span class="badge active">${proyecto.estado}</span>
                     </div>
                     <div class="project-body">
-                        <p class="project-description">Monitoreo climático y ambiental en la zona metropolitana para prevención de contingencias ambientales.</p>
+                        <p class="project-description"></p>
                         <div class="weather-grid">
                             <div class="weather-item temp">
                                 <svg class="weather-icon temp" fill="none" stroke="currentColor" viewBox="0 0 24 24">

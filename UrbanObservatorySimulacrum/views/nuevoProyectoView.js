@@ -1,4 +1,14 @@
 import { getWeather } from "../services/getWeather.js";
+import { addProyecto } from "../store/store.js";
+import { Proyecto } from "../store/store.js";
+import { store } from "../store/store.js";
+
+function submitAux(nombre, ciudad, estado, datos){
+  const nuevoProyecto = 
+  new Proyecto(nombre, ciudad, estado, datos);
+  addProyecto(nuevoProyecto)
+
+}
 
 export function nuevoProyecto(){
     const nuevoProyectoView = document.createElement("main")
@@ -89,6 +99,8 @@ export function nuevoProyecto(){
       const datos = await getWeather(lon.value, lat.value);
       console.log(datos)
 
+      submitAux(nombreProyecto.value, ciudadProyecto.value,status.value,datos)
+      console.log(store.projects)
 
     })
 
