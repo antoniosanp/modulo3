@@ -1,0 +1,19 @@
+{
+  "tareas": [
+    {
+      "id": "66a6",
+      "titulo": "dormir",
+      "completada": false
+    },
+    {
+      "id": "5f8e",
+      "titulo": "aprender js",
+      "completada": false
+    },
+    {
+      "id": "89c1",
+      "titulo": "fds",
+      "completada": false
+    }
+  ]
+}
