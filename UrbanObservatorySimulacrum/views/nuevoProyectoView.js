@@ -6,6 +6,7 @@ import { store } from "../store/store.js";
 function submitAux(nombre, ciudad, estado, datos){
   const nuevoProyecto = 
   new Proyecto(nombre, ciudad, estado, datos);
+  
   addProyecto(nuevoProyecto)
 
 }

@@ -1,0 +1,23 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "antonio",
+      "rol": "admin",
+      "email": "admin@gmail.com",
+      "password": "12345"
+    },
+    {
+      "id": "ee18",
+      "nombre": "pedro",
+      "email": "pedro@gmail.com",
+      "password": "54321",
+      "rol": "visitante",
+      "pedidos": []
+    }],
+
+    "productos" : [],
+
+    "pedidos" : []
+
+}

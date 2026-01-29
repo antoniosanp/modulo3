@@ -1,8 +1,8 @@
 //store.js
 
-export const store = {
+export  const store = {
     user : null,
-    projects : []
+    projects :  []
 }
 
 export class Proyecto {
@@ -22,3 +22,15 @@ export function addProyecto(proyecto){
 export function updateProyecto(proyecto, nuevoEstado){
     proyecto.estado = nuevoEstado;
 }
+
+
+// export const API_SERVER = "http://localhost:3000/proyectos";
+
+// //--------------------------------------------------------------
+// async function obtenerProyectos(){
+//     const respuesta = await fetch(API_SERVER);
+//     const respuestJSON = await respuesta.json();
+
+//     return respuestJSON
+// }
+
