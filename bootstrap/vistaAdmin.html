@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<body class="bg-light">
+
+<div class="container-fluid px-4">
+
+  <!-- NAVBAR -->
+  <header class="d-flex justify-content-between align-items-center py-3 mb-4">
+    <div class="fw-bold fs-5">🔺 RestorApp Admin</div>
+
+    <nav class="d-flex align-items-center gap-4">
+      <a class="fw-semibold text-success text-decoration-none" href="#">Dashboard</a>
+      <a class="text-muted text-decoration-none" href="#">Menu</a>
+      <a class="text-muted text-decoration-none" href="#">Users</a>
+      <div class="rounded-circle bg-secondary-subtle" style="width:32px;height:32px"></div>
+    </nav>
+  </header>
+
+  <!-- KPI CARDS -->
+  <section class="row g-4 mb-4">
+
+    <div class="col-lg-4">
+      <div class="card shadow-sm p-3">
+        <div class="text-muted small">Total Orders</div>
+        <div class="fs-4 fw-bold">1,245</div>
+      </div>
+    </div>
+
+    <div class="col-lg-4">
+      <div class="card shadow-sm p-3">
+        <div class="text-muted small">Pending Orders</div>
+        <div class="fs-4 fw-bold">15</div>
+      </div>
+    </div>
+
+    <div class="col-lg-4">
+      <div class="card shadow-sm p-3">
+        <div class="text-muted small">Today's Revenue</div>
+        <div class="fs-4 fw-bold">$3,450</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <section class="row g-4">
+
+    <!-- TABLE -->
+    <main class="col-lg-8">
+
+      <div class="card shadow-sm">
+        <div class="card-body">
+
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="fw-bold mb-0">Recent Orders</h5>
+
+            <div class="d-flex gap-2">
+              <button class="btn btn-outline-secondary btn-sm">Filter</button>
+              <button class="btn btn-outline-secondary btn-sm">Export</button>
+            </div>
+          </div>
+
+          <table class="table align-middle">
+            <thead class="table-light">
+              <tr>
+                <th>ID</th>
+                <th>User</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th class="text-end">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="table-success">
+                <td>#1024</td>
+                <td>Alice Smith</td>
+                <td>Oct 27, 14:30</td>
+                <td><span class="badge bg-primary">Preparing</span></td>
+                <td class="text-end">$45.00</td>
+              </tr>
+
+              <tr>
+                <td>#1023</td>
+                <td>Bob Jones</td>
+                <td>Oct 27, 14:15</td>
+                <td><span class="badge bg-warning text-dark">Pending</span></td>
+                <td class="text-end">$12.50</td>
+              </tr>
+
+              <tr>
+                <td>#1022</td>
+                <td>Charlie Day</td>
+                <td>Oct 27, 13:50</td>
+                <td><span class="badge bg-success">Delivered</span></td>
+                <td class="text-end">$32.00</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- PAGINATION (VISUAL) -->
+          <div class="d-flex justify-content-center gap-2 mt-3">
+            <span class="badge rounded-circle bg-success p-3">1</span>
+            <span class="text-muted">2</span>
+            <span class="text-muted">3</span>
+            <span class="text-muted">…</span>
+            <span class="text-muted">12</span>
+          </div>
+
+        </div>
+      </div>
+
+    </main>
+
+    <!-- ORDER DETAILS SIDEBAR -->
+    <aside class="col-lg-4">
+
+      <div class="card shadow-sm">
+        <div class="card-body">
+
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <div>
+              <small class="text-muted">Order Details</small>
+              <div class="fw-bold">#1024</div>
+            </div>
+            <span class="badge bg-primary">Preparing</span>
+          </div>
+
+          <hr>
+
+          <div class="mb-3">
+            <div class="fw-semibold">Customer</div>
+            <div>Alice Smith</div>
+            <small class="text-muted">alice@example.com</small>
+          </div>
+
+          <hr>
+
+          <div class="mb-3">
+            <div class="fw-semibold mb-2">Items</div>
+
+            <div class="d-flex justify-content-between mb-2">
+              <span>2× Burger Classico</span>
+              <span>$24.00</span>
+            </div>
+
+            <div class="d-flex justify-content-between mb-2">
+              <span>1× Truffle Fries</span>
+              <span>$8.00</span>
+            </div>
+
+            <div class="d-flex justify-content-between">
+              <span>1× Vanilla Shake</span>
+              <span>$5.00</span>
+            </div>
+          </div>
+
+          <hr>
+
+          <div class="d-flex justify-content-between text-muted">
+            <span>Subtotal</span>
+            <span>$45.00</span>
+          </div>
+
+          <div class="d-flex justify-content-between text-muted mb-2">
+            <span>Tax (8%)</span>
+            <span>$3.60</span>
+          </div>
+
+          <div class="d-flex justify-content-between fw-bold fs-5 mb-3">
+            <span>Total</span>
+            <span>$48.60</span>
+          </div>
+
+          <div class="d-flex gap-2">
+            <select class="form-select">
+              <option>Preparing</option>
+              <option>Ready</option>
+              <option>Delivered</option>
+            </select>
+
+            <button class="btn btn-success w-100">
+              ✓ Update
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+    </aside>
+
+  </section>
+
+</div>
+
+
+
+</body>
+</html>
