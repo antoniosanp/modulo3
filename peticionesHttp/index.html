@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>CRUD json-server</title>
+  <style>
+    body { font-family: sans-serif; background:#f5f5f5; padding:20px }
+    h2 { margin-top:40px }
+    .container { display:flex; gap:20px; flex-wrap:wrap }
+    .card {
+      background:white;
+      padding:15px;
+      border-radius:8px;
+      width:220px;
+      box-shadow:0 2px 6px rgba(0,0,0,.1)
+    }
+    button { margin-right:5px; margin-top:8px }
+    form { margin-bottom:20px }
+    input { margin:5px 0; width:200px }
+  </style>
+</head>
+<body>
+
+  <h1>CRUD con json-server</h1>
+
+  <!-- USUARIOS -->
+  <h2>Usuarios</h2>
+
+  <form id="user-form">
+    <input type="text" placeholder="Nombre" id="user-nombre" required />
+    <input type="email" placeholder="Email" id="user-email" required />
+    <input type="number" placeholder="Edad" id="user-edad" required />
+    <button>Agregar usuario</button>
+  </form>
+
+  <div id="users-container" class="container"></div>
+
+  <!-- PRODUCTOS -->
+  <h2>Productos</h2>
+
+  <form id="producto-form">
+    <input type="text" placeholder="Nombre" id="prod-nombre" required />
+    <input type="number" placeholder="Precio" id="prod-precio" required />
+    <input type="number" placeholder="Stock" id="prod-stock" required />
+    <button>Agregar producto</button>
+  </form>
+
+  <div id="productos-container" class="container"></div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

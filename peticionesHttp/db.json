@@ -1,0 +1,36 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "nombre": "Ana",
+      "email": "ana@mail.com",
+      "edad": 31
+    },
+    {
+      "id": "d7a3",
+      "nombre": "pedro",
+      "email": "pedro@email.com",
+      "edad": 44
+    },
+    {
+      "id": "8c9a",
+      "nombre": "pedro",
+      "email": "32@23",
+      "edad": 44
+    }
+  ],
+  "productos": [
+    {
+      "id": "f962",
+      "nombre": "nuevo producto",
+      "precio": 32,
+      "stock": 4
+    },
+    {
+      "id": "8064",
+      "nombre": "423",
+      "precio": 423,
+      "stock": 2
+    }
+  ]
+}
